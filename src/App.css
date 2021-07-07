@@ -1,38 +1,30 @@
-.App {
+html{
+ font-size: 18px;
+ font-family: 'Montserrat', sans-serif;
+}
+body{
+  background-image: url('https://images.unsplash.com/photo-1544631008-534b4b6c1215?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2105&q=80');
+}
+.LogIn{
+  height: 100vh;
+  align-content: center;
+  justify-content: center;
+  display: grid;
+}
+.LogIn label{
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  display: block;
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.LogIn input{
+  display: block;
+  padding: 0.3rem;
+  margin-bottom: 1.5rem;
+  background-color: rgba(0,0,0,0.7);
+  border: none;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.LogIn #submit{
+  width: 100%;
+  background-color: blanchedalmond;
 }
