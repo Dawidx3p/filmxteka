@@ -1,9 +1,53 @@
+/* Site Stylesheet
+  1. Global Styles
+  2. Color Styles
+  3. Fonts
+  4. Text styles
+  5. Section styles
+
+======================================== */
+
+/* 1. Global Styles
+======================================== */
 html{
  font-size: 18px;
  font-family: 'Montserrat', sans-serif;
 }
+
 body{
   background-image: url('https://images.unsplash.com/photo-1544631008-534b4b6c1215?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2105&q=80');
+}
+
+h1{
+  color: #DDD;
+  letter-spacing: 0.06em;
+  font-family: 'Montserrat', sans-serif;
+}
+
+h4{
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0.01em;
+}
+
+nav{
+  padding: 0.3rem;
+  background-color: rgba(0,0,0,0.7);
+}
+
+nav li{
+  display: inline-block;
+  color: white;
+  margin-right: 3rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* 5. Section styles
+======================================== */
+.LogIn h1{ text-align: center; }
+.App h1{ text-align: center; }
+.App main{ 
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
 }
 .LogIn{
   height: 100vh;
@@ -23,8 +67,16 @@ body{
   margin-bottom: 1.5rem;
   background-color: rgba(0,0,0,0.7);
   border: none;
+  color: white;
 }
 .LogIn #submit{
   width: 100%;
   background-color: blanchedalmond;
+  color: black;
+}
+
+.container{
+  padding: 5rem;
+  background-color: #1b1b1b;
+  border-radius: 3%;
 }
