@@ -1,11 +1,9 @@
 import './App.css';
 import React, { useState } from 'react';
-import Card from './components/Card/Card';
+import MojaLista from './mojalista';
 
 function App() {
   const initialUsers = [{username: 'Legos', password: 'Qwerty1'}, {username: 'Fagos', password: 'Qwerty2'}];
-  const mojaLista = [{id: 1, title: 'Lucyfer', creator: 'Tom Kapinos', cast: ['Man One', 'Famous Arni', 'Alice Wonderland'], description: 'Nieszczęśliwy i znudzony swoim bytem Lucyfer Morningstar porzuca funkcję Władcy Piekieł, po czym udaje się do Los Angeles, gdzie zostaje właścicielem luksusowego klubu nocnego.', genres: ['Fantasy', 'Thriller'], background: 'https://fwcdn.pl/fpo/25/20/742520/7928120.6.jpg'},
-  {id: 2, title: 'Lucyfer', creator: 'Tom Kapinos', cast: ['Man One', 'Famous Arni', 'Alice Wonderland'], description: 'Nieszczęśliwy i znudzony swoim bytem Lucyfer Morningstar porzuca funkcję Władcy Piekieł, po czym udaje się do Los Angeles, gdzie zostaje właścicielem luksusowego klubu nocnego.', genres: ['Fantasy', 'Thriller'], background: 'https://fwcdn.pl/fpo/25/20/742520/7928120.6.jpg'}]
   const [users, setUsers] = useState(initialUsers);
   const [logged, setLogged] = useState(false);
   const [username, setUsername] = useState('');
@@ -32,11 +30,7 @@ function App() {
             <li>Moja lista</li>
           </ul>
         </nav>
-        <main>
-          {mojaLista.map(film => {
-            return <Card film={film} key={film.id}/>
-          })}
-        </main>
+        <MojaLista />
         <button onClick={() => setLogged(false)}>wyloguj</button>
       </div>
     )
