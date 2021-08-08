@@ -24,6 +24,12 @@ h1{
   font-family: 'Montserrat', sans-serif;
 }
 
+h3{
+  font-family: 'Staatliches', cursive;
+  font-size: 1.3rem;
+  letter-spacing: 0.06em;
+}
+
 h4{
   font-family: 'Montserrat', sans-serif;
   letter-spacing: 0.01em;
@@ -41,14 +47,19 @@ nav li{
   font-family: 'Montserrat', sans-serif;
 }
 
+main{
+overflow: hidden;
+margin: 0 14rem;
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+align-items: center;
+justify-content: center;
+}
+
 /* 5. Section styles
 ======================================== */
 .LogIn h1{ text-align: center; }
 .App h1{ text-align: center; }
-.App main{ 
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-}
 .LogIn{
   height: 100vh;
   align-content: center;

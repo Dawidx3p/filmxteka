@@ -4,8 +4,8 @@ export const search = (q) => {
     fetch(`https://imdb8.p.rapidapi.com/title/find?q=${term}`, {
 	"method": "GET",
 	"headers": {
-		'x-rapidapi-key': 'b9ae6c0b8fmsh0729a624425a701p1526d9jsn121d73fcb534',
-    	'x-rapidapi-host': 'imdb8.p.rapidapi.com'
+		"x-rapidapi-key": "aba82c0959msh5626e6a9db57995p1e562fjsn52c4a95eb2ea",
+		"x-rapidapi-host": "imdb8.p.rapidapi.com"
 	}
 })
 .then(response => {
@@ -22,8 +22,8 @@ function getids(){
 	return fetch(`https://imdb8.p.rapidapi.com/title/get-most-popular-movies?homeCountry=US&purchaseCountry=US&currentCountry=US`, {
 	"method": "GET",
 	"headers": {
-		'x-rapidapi-key': 'b9ae6c0b8fmsh0729a624425a701p1526d9jsn121d73fcb534',
-    	'x-rapidapi-host': 'imdb8.p.rapidapi.com'
+		"x-rapidapi-key": "aba82c0959msh5626e6a9db57995p1e562fjsn52c4a95eb2ea",
+		"x-rapidapi-host": "imdb8.p.rapidapi.com"
 	}
 })
 .then(response => {
@@ -52,8 +52,8 @@ function getMetaData(ids){
 	return fetch(`https://imdb8.p.rapidapi.com/title/get-meta-data?ids=${ids}&region=US`, {
 		"method": "GET",
 		"headers": {
-			'x-rapidapi-key': 'b9ae6c0b8fmsh0729a624425a701p1526d9jsn121d73fcb534',
-    		'x-rapidapi-host': 'imdb8.p.rapidapi.com'
+			"x-rapidapi-key": "aba82c0959msh5626e6a9db57995p1e562fjsn52c4a95eb2ea",
+		"x-rapidapi-host": "imdb8.p.rapidapi.com"
 		}
 	})
 	.then(response => {
@@ -72,5 +72,24 @@ export function getMostPopular(){
 		console.error(err);
 	});
 	
+}
+export const getOverview = (tconst) => {
+	tconst = tconst.slice(7, -1);
+	return fetch(`https://imdb8.p.rapidapi.com/title/get-overview-details?tconst=${tconst}&currentCountry=US`, {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-key": "aba82c0959msh5626e6a9db57995p1e562fjsn52c4a95eb2ea",
+		"x-rapidapi-host": "imdb8.p.rapidapi.com"
+	}
+	})
+	.then(response => {
+		return response.json()
+	})
+	.then(object => {
+		return object;
+	})
+	.catch(err => {
+		console.error(err);
+	});
 }
 export default search;

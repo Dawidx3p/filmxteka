@@ -1,13 +1,21 @@
 import './App.css';
 import React, { useState } from 'react';
 import MojaLista from './mojalista';
+import PopUp from './components/popUp/popUp';
 
 function App() {
   const initialUsers = [{username: 'Legos', password: 'Qwerty1'}, {username: 'Fagos', password: 'Qwerty2'}];
   const [users, setUsers] = useState(initialUsers);
+  const [currentFilm, setCurrentFilm] = useState({});
   const [logged, setLogged] = useState(false);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [clicked, setClicked] = useState(false);
+
+  function toggleClick(){ setClicked(!clicked)};
+
+  function changeCurrentFilm(film){ setCurrentFilm(film)};
+
   function validate(){
     for(const user in users){
       if(users[user].username === username && users[user].password === password){
@@ -30,11 +38,12 @@ function App() {
             <li>Moja lista</li>
           </ul>
         </nav>
-        <MojaLista />
+        <MojaLista toggleClick={toggleClick} changeCurrentFilm={changeCurrentFilm}/>
+        <PopUp clicked={clicked} currentFilm={currentFilm} toggleClick={toggleClick}/>
         <button onClick={() => setLogged(false)}>wyloguj</button>
       </div>
     )
-  }else {
+  } else {
     return (
       <div className="LogIn"> 
       <h1>Filmxteka</h1>
