@@ -19,3 +19,19 @@
 .popup img{
     height: 30rem;
 }
+.vid button{
+    border: none;
+    background-color: #383C75;
+    border-radius: 3px;
+    padding: 0.6rem 2rem;
+    color: #b6b1cc;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.vid button:hover{
+    background-color: #252850;
+}

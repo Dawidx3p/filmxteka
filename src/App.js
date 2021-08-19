@@ -6,6 +6,7 @@ import PopUp from './components/popUp/popUp';
 function App() {
   const initialUsers = [{username: 'Legos', password: 'Qwerty1'}, {username: 'Fagos', password: 'Qwerty2'}];
   const [users, setUsers] = useState(initialUsers);
+  const [comments, setComments] = useState({'/title/tt6334354/': ['Ten Film rządzi!']});
   const [currentFilm, setCurrentFilm] = useState({});
   const [logged, setLogged] = useState(false);
   const [username, setUsername] = useState('');
@@ -15,6 +16,12 @@ function App() {
   function toggleClick(){ setClicked(!clicked)};
 
   function changeCurrentFilm(film){ setCurrentFilm(film)};
+
+  function addComment(comment, id){
+    const update = {};
+    update[id] = [...comments[id], comment];
+    setComments({...comments, update});
+  };
 
   function validate(){
     for(const user in users){
@@ -39,7 +46,7 @@ function App() {
           </ul>
         </nav>
         <MojaLista toggleClick={toggleClick} changeCurrentFilm={changeCurrentFilm}/>
-        <PopUp clicked={clicked} currentFilm={currentFilm} toggleClick={toggleClick}/>
+        <PopUp clicked={clicked} currentFilm={currentFilm} toggleClick={toggleClick} comments={comments}/>
         <button onClick={() => setLogged(false)}>wyloguj</button>
       </div>
     )

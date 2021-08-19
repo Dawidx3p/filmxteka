@@ -1,4 +1,5 @@
 import './popUp.css';
+import Comments from '../Comments/Comments';
 function PopUp(props) {
     let genres = '';
     if(props.clicked){
@@ -9,21 +10,40 @@ function PopUp(props) {
                 genres = genres + ', ' + props.currentFilm.genres[genre];
             }
         }
-        return(
-            <div className="vid" >
-                <div className="popup">
-                    <img src={props.currentFilm.title.image.url}/>
-                    <div>
-                        <h1>{props.currentFilm.title.title}</h1>
-                        <h4>Rok: {props.currentFilm.title.year}</h4>
-                        <p>{genres}</p>
-                        <p>{props.currentFilm.plotOutline.text}</p>
-                        <button onClick={() => props.toggleClick()}>wyjdź</button>
+        if(props.currentFilm.plotOutline){
+            return(
+                <div className="vid" >
+                    <div className="popup">
+                        <img src={props.currentFilm.title.image.url}/>
+                        <div>
+                            <h1>{props.currentFilm.title.title}</h1>
+                            <h4>Rok: {props.currentFilm.title.year}</h4>
+                            <p>{genres}</p>
+                            <p>{props.currentFilm.plotOutline.text}</p>
+                            <Comments comments={props.comments[props.currentFilm.title.id]}/>
+                            <button onClick={() => props.toggleClick()}>exit</button>
+                        </div>
+                        
                     </div>
-                    
                 </div>
-            </div>
-        );
+            );
+        }else{
+            return(
+                <div className="vid" >
+                    <div className="popup">
+                        <img src={props.currentFilm.title.image.url}/>
+                        <div>
+                            <h1>{props.currentFilm.title.title}</h1>
+                            <h4>Rok: {props.currentFilm.title.year}</h4>
+                            <p>{genres}</p>
+                            <button onClick={() => props.toggleClick()}>exit</button>
+                        </div>
+                        
+                    </div>
+                </div>
+            );
+        }
+        
     }else{
         return(
             <div></div>
