@@ -35,3 +35,27 @@
 .vid button:hover{
     background-color: #252850;
 }
+input.addComment{
+    font-family: 'Montserrat', sans-serif;
+    padding: 0.3rem;
+    width: 100%;
+}
+
+.comments{
+    padding: 1rem;
+    max-width: 35rem;
+}
+
+.addComment{
+    display: grid;
+    grid-template-columns: 1fr 12fr;
+    align-content: center;
+}
+
+.addComment .img{
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+    background-size: cover;
+    background-color: rgb(65, 65, 65);
+}

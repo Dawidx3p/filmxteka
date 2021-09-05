@@ -22,6 +22,8 @@ h1{
   color: #DDD;
   letter-spacing: 0.06em;
   font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  text-shadow: 2px 2px 2px rgb(0, 0, 0);
 }
 
 h3{
@@ -59,35 +61,34 @@ justify-content: center;
 /* 5. Section styles
 ======================================== */
 .LogIn h1{ text-align: center; }
-.App h1{ text-align: center; }
+.App h1{ text-align: center;}
 .LogIn{
   height: 100vh;
+  display: grid;
   align-content: center;
   justify-content: center;
-  display: grid;
-}
-.LogIn label{
-  color: white;
-  font-family: 'Montserrat', sans-serif;
-  display: block;
-  text-align: center;
-}
-.LogIn input{
-  display: block;
-  padding: 0.3rem;
-  margin-bottom: 1.5rem;
-  background-color: rgba(0,0,0,0.7);
-  border: none;
-  color: white;
-}
-.LogIn #submit{
-  width: 100%;
-  background-color: blanchedalmond;
-  color: black;
 }
 
-.container{
-  padding: 5rem;
-  background-color: #1b1b1b;
-  border-radius: 3%;
+.LogIn .submit{
+  text-transform: uppercase;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 2rem;
+  background-color: rgb(76, 35, 226);
+  color: rgb(185, 182, 218);
+  cursor: pointer;
+  transition-duration: 0.2s;
+}
+
+.LogIn .submit:hover{
+  background-color: rgb(51, 23, 153);
+  color: rgb(215, 212, 243);
+}
+
+.LogIn h1{
+  text-align: center;
+  text-shadow: 2px 2px 2px rgb(0, 0, 0);
 }
