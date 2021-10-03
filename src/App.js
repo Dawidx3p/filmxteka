@@ -11,7 +11,7 @@ function App() {
   const [clicked, setClicked] = useState(false);
   const { loginWithRedirect } = useAuth0();
   const { logout } = useAuth0();
-  const { user, isAuthenticated, isLoading } = useAuth0();
+  const { user, isAuthenticated } = useAuth0();
 
   function toggleClick(){ setClicked(!clicked)};
 
