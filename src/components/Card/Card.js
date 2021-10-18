@@ -11,7 +11,12 @@ function Card(props) {
     if(props.id <= 4){
         return(
             <div>
-            <Link to={`/film/${props.film.title.id}`}>{props.film.title.title}</Link>
+            <Link to={`/film/${props.film.title.id}`} onClick={() => {
+                    getOverview(props.film.title.id)
+                    .then(object => {
+                        props.changeCurrentFilm(object);
+                    })
+                    }}>{props.film.title.title}</Link>
             </div>
         )
     }else{

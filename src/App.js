@@ -65,7 +65,7 @@ function App() {
             <MyComments />
           </Route>
           <Route path="/film">
-            <Film />
+            <Film film={currentFilm}/>
           </Route>
           <Route path="/">
             <Home />
