@@ -17,11 +17,8 @@ function Card(props) {
             <div>
             <Link to={`/${props.film.title.id}`}>{props.film.title.title}</Link>
             <Switch>
-                <Route path={`${match.path}/:filmId`}>
+                <Route path={`/${props.film.title.id}`}>
                 <Film />
-                </Route>
-                <Route path={match.path}>
-                <h3>Please select a topic.</h3>
                 </Route>
             </Switch>
             </div>
