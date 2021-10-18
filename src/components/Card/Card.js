@@ -1,21 +1,31 @@
 import './Card.css';
 import React from 'react';
+import Film from '../Film/Film';
 import {getOverview} from '../../util/imdb';
+import {
+    Switch,
+    Route,
+    Link,
+  } from "react-router-dom";
+
 
 function Card(props) {
     const background = `url('${props.film.title.image.url}')`;
     if(props.id <= 4){
         return(
-            <div className="Card" style={{backgroundImage: background}}>
-                <div className="background" onClick={() => {
-                    getOverview(props.film.title.id)
-                    .then(object => {
-                        props.changeCurrentFilm(object);
-                        props.toggleClick();
-                    })
-                    }}>
+            <div>
+            <Link to={`/${props.film.title.title}`}>
+                <div className="Card" style={{backgroundImage: background}}>
+                <div className="background" >
                         
                 </div>
+                </div>
+            </Link>
+            <Switch>
+            <Route path={`/${props.film.title.title}`}>
+                <Film film={props.film}/>
+            </Route>
+            </Switch>
             </div>
         )
     }else{
