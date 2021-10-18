@@ -6,15 +6,17 @@ import {
     Switch,
     Route,
     Link,
+    useRouteMatch
   } from "react-router-dom";
 
 
 function Card(props) {
+    let match = useRouteMatch();
     const background = `url('${props.film.title.image.url}')`;
     if(props.id <= 4){
         return(
             <div>
-            <Link to={`/${props.film.title.title}`}>
+            <Link to={`${match.url}/${props.film.title.id}`}>
                 <div className="Card" style={{backgroundImage: background}}>
                 <div className="background" >
                         
@@ -22,9 +24,12 @@ function Card(props) {
                 </div>
             </Link>
             <Switch>
-            <Route path={`/${props.film.title.title}`}>
-                <Film film={props.film}/>
-            </Route>
+                <Route path={`${match.path}/:filmId`}>
+                <Film />
+                </Route>
+                <Route path={match.path}>
+                <h3>Please select a topic.</h3>
+                </Route>
             </Switch>
             </div>
         )
