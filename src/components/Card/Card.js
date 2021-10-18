@@ -16,13 +16,7 @@ function Card(props) {
     if(props.id <= 4){
         return(
             <div>
-            <Link to={`/${props.film.title.id}`}>
-                <div className="Card" style={{backgroundImage: background}}>
-                <div className="background" >
-                        
-                </div>
-                </div>
-            </Link>
+            <Link to={`/${props.film.title.id}`}>{props.film.title.title}</Link>
             <Switch>
                 <Route path={`${match.path}/:filmId`}>
                 <Film />
