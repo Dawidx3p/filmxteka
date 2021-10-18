@@ -16,7 +16,7 @@ function Card(props) {
     if(props.id <= 4){
         return(
             <div>
-            <Link to={`${match.url}/${props.film.title.id}`}>
+            <Link to={`/${props.film.title.id}`}>
                 <div className="Card" style={{backgroundImage: background}}>
                 <div className="background" >
                         
