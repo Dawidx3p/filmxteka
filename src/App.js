@@ -5,6 +5,7 @@ import PopUp from './components/popUp/popUp';
 import Profile from './components/Profile/Profile';
 import { useAuth0 } from "@auth0/auth0-react";
 import Home from './components/Home/Home';
+import Film from './components/Film/Film';
 import {
   BrowserRouter as Router,
   Switch,
@@ -62,6 +63,9 @@ function App() {
           </Route>
           <Route path="/myComments">
             <MyComments />
+          </Route>
+          <Route path="/film">
+            <Film />
           </Route>
           <Route path="/">
             <Home />

@@ -1,11 +1,9 @@
 import './Card.css';
 import React from 'react';
-import Film from '../Film/Film';
+
 import {getOverview} from '../../util/imdb';
 import {
-    Switch,
-    Route,
-    Link,
+    Link
   } from "react-router-dom";
 
 
@@ -13,12 +11,7 @@ function Card(props) {
     if(props.id <= 4){
         return(
             <div>
-            <Link to={`/${props.film.title.id}`}>{props.film.title.title}</Link>
-            <Switch>
-                <Route path={`/${props.film.title.id}`}>
-                <Film />
-                </Route>
-            </Switch>
+            <Link to={`/film/${props.film.title.id}`}>{props.film.title.title}</Link>
             </div>
         )
     }else{
