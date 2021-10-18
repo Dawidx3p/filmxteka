@@ -2,9 +2,10 @@ import './Film.css';
 import React from 'react';
 
 function Film(props) {
+    console.log(props)
     return(
         <div>
-        {props.film.title.title && <div>{props.film.title.title}</div>}
+        Chyba się coś nie odpala
         </div>
     );
 }
