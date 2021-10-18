@@ -12,7 +12,6 @@ import {
 
 function Card(props) {
     let match = useRouteMatch();
-    const background = `url('${props.film.title.image.url}')`;
     if(props.id <= 4){
         return(
             <div>
