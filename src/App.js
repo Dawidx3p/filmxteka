@@ -49,19 +49,19 @@ function App() {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <Link to="/mylist">My List</Link>
           </li>
           <li>
-            <Link to="/topics">Topics</Link>
+            <Link to="/myComments">My Comments</Link>
           </li>
         </ul>
 
         <Switch>
-          <Route path="/about">
-            <About />
+          <Route path="/mylist">
+            <MyList />
           </Route>
-          <Route path="/topics">
-            <Topics />
+          <Route path="/myComments">
+            <MyComments />
           </Route>
           <Route path="/">
             <Home />
@@ -70,14 +70,6 @@ function App() {
       </div>
     
         <h1>Filmxteka</h1>
-        <nav>
-          <ul>
-            <li>Strona główna</li>
-            <li>Seriale i programy</li>
-            <li>Filmy</li>
-            <li>Moja lista</li>
-          </ul>
-        </nav>
         <MojaLista toggleClick={toggleClick} changeCurrentFilm={changeCurrentFilm}/>
         <PopUp user={user} addComment={addComment} clicked={clicked} currentFilm={currentFilm} toggleClick={toggleClick} comments={comments}/>
         <button onClick={() => logout({ returnTo: window.location.origin })}>
@@ -97,11 +89,11 @@ function App() {
   } 
 }
 
-function About() {
-  return <h2>About</h2>;
+function MyList() {
+  return <h2>My List</h2>;
 }
 
-function Topics() {
+function MyComments() {
   let match = useRouteMatch();
 
   return (
