@@ -3,7 +3,9 @@ import React from 'react';
 
 function Film(props) {
     return(
-        <div>{props.film.title.title}</div>
+        <div>
+        {props.film && <div>{props.film.title.title}</div>}
+        </div>
     );
 }
 
