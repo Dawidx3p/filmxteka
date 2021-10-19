@@ -1,7 +1,5 @@
 import './App.css';
 import React, { useState } from 'react';
-import MojaLista from './mojalista';
-import PopUp from './components/popUp/popUp';
 import Profile from './components/Profile/Profile';
 import { useAuth0 } from "@auth0/auth0-react";
 import Home from './components/Home/Home';
@@ -18,12 +16,9 @@ import {
 function App() {
   const [comments, setComments] = useState({});
   const [currentFilm, setCurrentFilm] = useState({});
-  const [clicked, setClicked] = useState(false);
   const { loginWithRedirect } = useAuth0();
   const { logout } = useAuth0();
   const { user, isAuthenticated } = useAuth0();
-
-  function toggleClick(){ setClicked(!clicked)};
 
   function changeCurrentFilm(film){ setCurrentFilm(film)};
 
@@ -65,17 +60,13 @@ function App() {
             <MyComments />
           </Route>
           <Route path="/film">
-            <Film film={currentFilm}/>
+            <Film currentFilm={currentFilm}/>
           </Route>
           <Route path="/">
-            <Home />
+            <Home changeCurrentFilm={changeCurrentFilm} comments={comments} addComment={addComment} user={user}/>
           </Route>
         </Switch>
       </div>
-    
-        <h1>Filmxteka</h1>
-        <MojaLista toggleClick={toggleClick} changeCurrentFilm={changeCurrentFilm}/>
-        <PopUp user={user} addComment={addComment} clicked={clicked} currentFilm={currentFilm} toggleClick={toggleClick} comments={comments}/>
         <button onClick={() => logout({ returnTo: window.location.origin })}>
       Log Out
     </button>

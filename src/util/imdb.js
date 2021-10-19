@@ -4,8 +4,8 @@ export const search = (q) => {
     fetch(`https://imdb8.p.rapidapi.com/title/find?q=${term}`, {
 	"method": "GET",
 	"headers": {
-		"x-rapidapi-key": "aba82c0959msh5626e6a9db57995p1e562fjsn52c4a95eb2ea",
-		"x-rapidapi-host": "imdb8.p.rapidapi.com"
+		"x-rapidapi-host": "imdb8.p.rapidapi.com",
+		"x-rapidapi-key": "a71e35221fmsh858b22df28a2cabp12df88jsn27f4746a6d82"
 	}
 })
 .then(response => {
@@ -22,8 +22,8 @@ function getids(){
 	return fetch(`https://imdb8.p.rapidapi.com/title/get-most-popular-movies?homeCountry=US&purchaseCountry=US&currentCountry=US`, {
 	"method": "GET",
 	"headers": {
-		"x-rapidapi-key": "aba82c0959msh5626e6a9db57995p1e562fjsn52c4a95eb2ea",
-		"x-rapidapi-host": "imdb8.p.rapidapi.com"
+		"x-rapidapi-host": "imdb8.p.rapidapi.com",
+		"x-rapidapi-key": "a71e35221fmsh858b22df28a2cabp12df88jsn27f4746a6d82"
 	}
 })
 .then(response => {
@@ -52,8 +52,8 @@ function getMetaData(ids){
 	return fetch(`https://imdb8.p.rapidapi.com/title/get-meta-data?ids=${ids}&region=US`, {
 		"method": "GET",
 		"headers": {
-			"x-rapidapi-key": "aba82c0959msh5626e6a9db57995p1e562fjsn52c4a95eb2ea",
-		"x-rapidapi-host": "imdb8.p.rapidapi.com"
+			"x-rapidapi-host": "imdb8.p.rapidapi.com",
+		"x-rapidapi-key": "a71e35221fmsh858b22df28a2cabp12df88jsn27f4746a6d82"
 		}
 	})
 	.then(response => {
@@ -78,8 +78,8 @@ export const getOverview = (tconst) => {
 	return fetch(`https://imdb8.p.rapidapi.com/title/get-overview-details?tconst=${tconst}&currentCountry=US`, {
 	"method": "GET",
 	"headers": {
-		"x-rapidapi-key": "aba82c0959msh5626e6a9db57995p1e562fjsn52c4a95eb2ea",
-		"x-rapidapi-host": "imdb8.p.rapidapi.com"
+		"x-rapidapi-host": "imdb8.p.rapidapi.com",
+		"x-rapidapi-key": "a71e35221fmsh858b22df28a2cabp12df88jsn27f4746a6d82"
 	}
 	})
 	.then(response => {

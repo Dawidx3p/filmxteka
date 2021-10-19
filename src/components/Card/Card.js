@@ -12,10 +12,7 @@ function Card(props) {
         return(
             <div>
             <Link to={`/film/${props.film.title.id}`} onClick={() => {
-                    getOverview(props.film.title.id)
-                    .then(object => {
-                        props.changeCurrentFilm(object);
-                    })
+                        props.changeCurrentFilm(props.film.title.id);
                     }}>{props.film.title.title}</Link>
             </div>
         )
