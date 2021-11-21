@@ -1,7 +1,5 @@
 import './Card.css';
 import React from 'react';
-
-import {getOverview} from '../../util/imdb';
 import {
     Link
   } from "react-router-dom";
@@ -10,23 +8,19 @@ import {
 function Card(props) {
     if(props.id <= 4){
         return(
-            <div>
+            <div  className="card">
             <Link to={`/film/${props.film.title.id}`} onClick={() => {
                         props.changeCurrentFilm(props.film.title.id);
-                    }}>{props.film.title.title}</Link>
+                    }}><div className='film bigFilm'><img alt='film poster' src={props.film.title.image.url}/></div></Link>
             </div>
         )
     }else{
         return(
-            <div className="Card">
-                <div className="small" onClick={() => {
-                    getOverview(props.film.title.id)
-                    .then(object => {
-                        props.changeCurrentFilm(object);
-                        props.toggleClick();
-                    })
-                    }}>
-                        <h3>{props.film.title.title}</h3>
+            <div className="card">
+                <div className="small">
+                <Link to={`/film/${props.film.title.id}`} onClick={() => {
+                        props.changeCurrentFilm(props.film.title.id);
+                    }}><div className='film'>{props.film.title.title}</div></Link>
                 </div>
             </div>
         )

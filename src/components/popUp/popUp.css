@@ -46,12 +46,6 @@ input.addComment{
     max-width: 35rem;
 }
 
-.addComment{
-    display: grid;
-    grid-template-columns: 1fr 12fr;
-    align-content: center;
-}
-
 .addComment .img{
     height: 40px;
     width: 40px;

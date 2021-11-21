@@ -1,3 +1,13 @@
 body{
     color:white;
 }
+.CurrentFilm{
+    display: grid;
+    margin: 2rem 10rem;
+    grid-template-columns: repeat(2, 1fr);
+}
+.CurrentFilm img{max-height: 70vh;}
+.CurrentFilm section{
+    background-color: rgba(90, 90, 90, 0.5);
+    padding: 2rem
+}

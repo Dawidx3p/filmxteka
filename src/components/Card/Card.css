@@ -1,9 +1,8 @@
-.Card{
-    background-position: top;
-    background-size: cover;
-    display: inline-block;
+.card{
+    display: inline-flex;
+    margin: 0.2rem 0.2rem;
 }
-.Card .background{
+.card .background{
     display: grid;
     height: 30rem;
     background-color: rgba(0,0,0,0.3);
@@ -18,4 +17,25 @@
     color:white;
     background-color: rgba(0,0,0,0.6);
     cursor: pointer;
+}
+
+.card a{
+    text-decoration: none;
+    color: #EEE;
+}
+
+.film{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:15rem;
+    height: 3rem;
+    padding: 0.5rem;
+}
+.bigFilm{
+    height: 30rem;
+}
+.film img{
+    max-height: 100%;
 }

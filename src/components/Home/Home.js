@@ -7,8 +7,8 @@ function Home(props) {
     return (
       <div>
         <h1>Filmxteka</h1>
-        <MojaLista changeCurrentFilm={props.changeCurrentFilm}/>
-        <PopUp user={props.user} addComment={props.addComment} currentFilm={props.currentFilm} comments={props.comments}/>
+        <MojaLista changeCurrentFilm={props.changeCurrentFilm} mojaLista={props.mojaLista} ready={props.ready}/>
+        <PopUp user={props.user} addComment={props.addComment} currentFilm={props.currentFilm} comments={props.comments} />
       </div>
     )
   }

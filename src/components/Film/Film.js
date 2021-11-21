@@ -1,5 +1,7 @@
 import './Film.css';
 import React, { useEffect, useState } from 'react';
+import Comments from '../Comments/Comments';
+import AddComment from '../addComment/addComment';
 import {getOverview} from '../../util/imdb';
 
 function Film(props) {
@@ -15,9 +17,15 @@ function Film(props) {
     }, [props.currentFilm]);
     return(
         <div>
-        Chyba się coś nie odpala
-        {isPending && <div>Loading...</div>}
-        {film && <div>{film.title.title}</div>}
+        {isPending && <div className="CurrentFilm">Loading...</div>}
+        {film && <div className="CurrentFilm">
+            <section>
+            <h2>{film.title.title}</h2>
+            <p>{film.plotOutline.text}</p>
+            <Comments currentFilm={props.currentFilm} comments={props.comments} />
+            <AddComment user={props.user} currentFilm={props.currentFilm} addComment={props.addComment}/>
+            </section>
+            <img alt='Film poster' src={film.title.image.url} /></div>}
         </div>
     );
 }

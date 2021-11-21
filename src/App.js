@@ -1,5 +1,6 @@
 import './App.css';
-import React, { useState } from 'react';
+import {getMostPopular} from './util/imdb';
+import React, { useState, useEffect } from 'react';
 import Profile from './components/Profile/Profile';
 import { useAuth0 } from "@auth0/auth0-react";
 import Home from './components/Home/Home';
@@ -14,7 +15,9 @@ import {
 } from "react-router-dom";
 
 function App() {
-  const [comments, setComments] = useState({});
+  const [mojaLista, setMojaLista] = useState([]);
+  const [ready, setReady] = useState(false);
+  const [comments, setComments] = useState([]);
   const [currentFilm, setCurrentFilm] = useState({});
   const { loginWithRedirect } = useAuth0();
   const { logout } = useAuth0();
@@ -22,24 +25,22 @@ function App() {
 
   function changeCurrentFilm(film){ setCurrentFilm(film)};
 
-  function addComment(id, user, comment){
-    console.log(comment);
-    if(comments[id]===undefined){
-      setComments(prevState => ({
-        ...prevState, 
-        [id]: [{id, user, comment}] }));
-    }else{
-      setComments(prevState => ({
-        ...prevState, 
-        [id]: [...prevState[id], {id, user, comment}] }));
-    }
-    
-  };
-
+  function addComment(comment){
+      setComments([
+        ...comments, 
+        comment ]);
+    };
+  useEffect(() => {
+    getMostPopular().then(object => {
+        setMojaLista(Object.values(object));
+        setReady(true);
+    });
+  },[])
   if(isAuthenticated){
     return(
       <Router>
       <div className="App">
+        <nav>
         <ul>
           <li>
             <Link to="/">Home</Link>
@@ -51,6 +52,7 @@ function App() {
             <Link to="/myComments">My Comments</Link>
           </li>
         </ul>
+        </nav>
 
         <Switch>
           <Route path="/mylist">
@@ -60,10 +62,10 @@ function App() {
             <MyComments />
           </Route>
           <Route path="/film">
-            <Film currentFilm={currentFilm}/>
+            <Film currentFilm={currentFilm} user={user} comments={comments} addComment={addComment}/>
           </Route>
           <Route path="/">
-            <Home changeCurrentFilm={changeCurrentFilm} comments={comments} addComment={addComment} user={user}/>
+            <Home changeCurrentFilm={changeCurrentFilm}  user={user} mojaLista={mojaLista} ready={ready}/>
           </Route>
         </Switch>
       </div>

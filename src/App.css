@@ -49,6 +49,11 @@ nav li{
   font-family: 'Montserrat', sans-serif;
 }
 
+nav a{
+  text-decoration: none;
+  color: #EEE;
+}
+
 main{
 overflow: hidden;
 margin: 0 14rem;
