@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Comments from '../Comments/Comments';
 import AddComment from '../addComment/addComment';
 import {getOverview} from '../../util/imdb';
+import {Link} from "react-router-dom";
 
 function Film(props) {
     console.log(props)
@@ -24,6 +25,7 @@ function Film(props) {
             <p>{film.plotOutline.text}</p>
             <Comments currentFilm={props.currentFilm} comments={props.comments} />
             <AddComment user={props.user} currentFilm={props.currentFilm} addComment={props.addComment}/>
+            <Link to="/"><div className='primaryButton'>Go back</div></Link>
             </section>
             <img alt='Film poster' src={film.title.image.url} /></div>}
         </div>

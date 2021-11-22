@@ -97,3 +97,23 @@ justify-content: center;
   text-align: center;
   text-shadow: 2px 2px 2px rgb(0, 0, 0);
 }
+
+.primaryButton{
+  background-color: #222;
+  max-width: 10rem;
+  margin: 3rem;
+  color: #CCC;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 1rem;
+  transition-duration: 0.2s;
+}
+
+.primaryButton:hover{
+  background-color: #444;
+}
+
+.CurrentFilm a{text-decoration: none;}
