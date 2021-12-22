@@ -19,6 +19,7 @@ function App() {
   const [ready, setReady] = useState(false);
   const [comments, setComments] = useState([]);
   const [currentFilm, setCurrentFilm] = useState({});
+  const [myList, setMyList] = useState([]);
   const { loginWithRedirect } = useAuth0();
   const { logout } = useAuth0();
   const { user, isAuthenticated } = useAuth0();
@@ -56,13 +57,14 @@ function App() {
 
         <Switch>
           <Route path="/mylist">
-            <MyList />
+            <MyList myList={myList} 
+            deleteFilmFromMyList={film => {setMyList([myList.filter(obj => obj!==film)])}}/>
           </Route>
           <Route path="/myComments">
             <MyComments />
           </Route>
           <Route path="/film">
-            <Film currentFilm={currentFilm} user={user} comments={comments} addComment={addComment}/>
+            <Film addFilmToMyList={film => setMyList([...myList, film])} currentFilm={currentFilm} user={user} comments={comments} addComment={addComment}/>
           </Route>
           <Route path="/">
             <Home changeCurrentFilm={changeCurrentFilm}  user={user} mojaLista={mojaLista} ready={ready}/>
