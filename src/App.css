@@ -117,3 +117,14 @@ justify-content: center;
 }
 
 .CurrentFilm a{text-decoration: none;}
+
+.myListFilms img{
+  max-width: 20vw;
+}
+
+.myListFilms{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  margin: 0;
+  padding: 0;
+}

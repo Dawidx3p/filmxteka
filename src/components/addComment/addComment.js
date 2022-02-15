@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './addComment.css';
 
 export default function AddComment(props){
+    console.log(props)
     const [comment, setComment] = useState('');
     return(
     <div className="addComment">

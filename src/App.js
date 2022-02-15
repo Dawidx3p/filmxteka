@@ -10,9 +10,8 @@ import {
   Switch,
   Route,
   Link,
-  useRouteMatch,
-  useParams
 } from "react-router-dom";
+import MyFilm from './components/MyFilm';
 
 function App() {
   const [mojaLista, setMojaLista] = useState([]);
@@ -31,12 +30,23 @@ function App() {
         ...comments, 
         comment ]);
     };
+    
   useEffect(() => {
     getMostPopular().then(object => {
         setMojaLista(Object.values(object));
         setReady(true);
     });
   },[])
+  /*
+  useEffect(() => {
+    localStorage.setItem('comments', JSON.stringify(comments))
+},[comments])
+  useEffect(() => {
+    const commentsLocal = JSON.parse(localStorage.getItem('comments'));
+    console.log(commentsLocal);
+    if(commentsLocal && commentsLocal.length>0  && comments.length===0)setComments(commentsLocal);
+  },[comments.length]) */
+
   if(isAuthenticated){
     return(
       <Router>
@@ -61,7 +71,7 @@ function App() {
             deleteFilmFromMyList={film => {setMyList([myList.filter(obj => obj!==film)])}}/>
           </Route>
           <Route path="/myComments">
-            <MyComments />
+            <MyComments comments={comments}/>
           </Route>
           <Route path="/film">
             <Film addFilmToMyList={film => setMyList([...myList, film])} currentFilm={currentFilm} user={user} comments={comments} addComment={addComment}/>
@@ -88,47 +98,19 @@ function App() {
   } 
 }
 
-function MyList() {
-  return <h2>My List</h2>;
+function MyList(props) {
+  return (<ul className='myListFilms'>
+    {props.myList.length ? props.myList.map((film, key) => <MyFilm key={key} film={film}/>) : 'No films added yet'}
+  </ul>)
 }
 
-function MyComments() {
-  let match = useRouteMatch();
-
+function MyComments({comments}) {
+  console.log(comments)
   return (
-    <div>
-      <h2>Topicss</h2>
-
-      <ul>
-        <li>
-          <Link to={`${match.url}/components`}>Components</Link>
-        </li>
-        <li>
-          <Link to={`${match.url}/props-v-state`}>
-            Props v. State
-          </Link>
-        </li>
-      </ul>
-
-      {/* The Topics page has its own <Switch> with more routes
-          that build on the /topics URL path. You can think of the
-          2nd <Route> here as an "index" page for all topics, or
-          the page that is shown when no topic is selected */}
-      <Switch>
-        <Route path={`${match.path}/:topicId`}>
-          <Topic />
-        </Route>
-        <Route path={match.path}>
-          <h3>Please select a topic.</h3>
-        </Route>
-      </Switch>
-    </div>
+    <ul>
+      {comments.length ? comments.map((comment, key) => <li key={key}>{comment.comment}</li>) : 'No comments added yet'}
+    </ul>
   );
-}
-
-function Topic() {
-  let { topicId } = useParams();
-  return <h3>Requested topic ID: {topicId}</h3>;
 }
 
 export default App;
